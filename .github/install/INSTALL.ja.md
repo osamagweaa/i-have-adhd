@@ -104,6 +104,24 @@ rm ~/.claude/.i-have-adhd-always
 
 フックはフラグファイルが存在する場合のみ動作するため、プラグインをインストールしただけでは何も変わりません。設定ディレクトリを移動している場合は `$CLAUDE_CONFIG_DIR` が使われます。「stop adhd mode」と入力すれば、現在のセッションでは無効にできます。
 
+### 常時有効（プラグイン不要）
+
+このリポジトリの [`CLAUDE.md`](../../CLAUDE.md) には完全なルールセットがそのまま書かれています。メモリーファイルにコピーすれば、プラグインもマーケットプレイスもフラグファイルもなしでルールが適用されます。
+
+すべてのプロジェクト：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ayghri/i-have-adhd/main/CLAUDE.md >> ~/.claude/CLAUDE.md
+```
+
+特定のプロジェクトのみ（そのルートで実行）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ayghri/i-have-adhd/main/CLAUDE.md >> ./CLAUDE.md
+```
+
+この方法と上記のフラグファイルの方法は**どちらか一方**にしてください。コンテキストにルールセットが 2 つあっても得られるものはありません。元に戻すには、追記された部分を削除します。「stop adhd mode」と入力すれば、現在のセッションでは無効にできます。
+
 </details>
 
 
