@@ -11,6 +11,7 @@ on:
       - skills/i-have-adhd/SKILL.md
       - CLAUDE.md
       - scripts/build_claude_md.sh
+      - tests/test_build_claude_md.py
       - .github/workflows/claude-md-sync.yml
   push:
     branches: [main]
@@ -20,9 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
       - name: Fail if CLAUDE.md differs from the generated output
         run: |
           sh scripts/build_claude_md.sh | diff -u CLAUDE.md - || {
             echo "::error::CLAUDE.md is stale. Run: sh scripts/build_claude_md.sh > CLAUDE.md"
             exit 1
           }
+      - name: Test the generator
+        run: python -m unittest tests.test_build_claude_md -v

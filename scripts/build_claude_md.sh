@@ -32,24 +32,35 @@ Shape every response for a reader with ADHD. Follow the rules below in full: lea
 HEADER
 
 # Strip the leading YAML frontmatter block (--- ... --- at the very top of the
-# file), then drop the body's own `# i-have-adhd` H1 and the blank lines after
+# file), then drop the body's own `# i-have-adhd` H1 and the blank lines around
 # it, since the header above already supplies an H1.
+#
+# An unterminated fence is not frontmatter, so the whole file is kept unless the
+# closing delimiter exists. That two-pass read (hence the file passed twice)
+# mirrors hooks/always-on.{sh,mjs,ps1}; keep the three in step, since a single
+# pass would treat a leading horizontal rule as an unclosed frontmatter block
+# and swallow the entire ruleset.
 awk '
-  NR == 1 && $0 ~ /^---[[:space:]]*$/ { in_fm = 1; next }
-  in_fm && $0 ~ /^---[[:space:]]*$/   { in_fm = 0; next }
-  in_fm                               { next }
+  NR == FNR {
+    if (NR == 1 && $0 ~ /^---[[:space:]]*$/) { in_fm = 1; next }
+    if (in_fm && $0 ~ /^---[[:space:]]*$/)   { in_fm = 0; closed = 1 }
+    next
+  }
 
-  !started && $0 ~ /^# /              { started = 1; next }
-  !started                            { next }
+  FNR == 1 { strip = closed }
+  strip && FNR == 1 && $0 ~ /^---[[:space:]]*$/ { skipping = 1; next }
+  skipping && $0 ~ /^---[[:space:]]*$/          { skipping = 0; next }
+  skipping                                      { next }
 
-  started && !body && $0 ~ /^[[:space:]]*$/ { next }
+  !dropped_h1 && $0 ~ /^# /            { dropped_h1 = 1; next }
+  !body && $0 ~ /^[[:space:]]*$/       { next }
 
   { body = 1; print }
 
   END {
     if (!body) {
-      print "build_claude_md.sh: no body found after the H1 in SKILL.md" > "/dev/stderr"
+      print "build_claude_md.sh: SKILL.md has no body to copy" > "/dev/stderr"
       exit 1
     }
   }
-' "$skill_path"
+' "$skill_path" "$skill_path"
