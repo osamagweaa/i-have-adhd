@@ -135,7 +135,7 @@ codex plugin marketplace add ayghri/i-have-adhd --ref main
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
-Digite `$i-have-adhd`.
+Ative a skill explicitamente digitando `$i-have-adhd`. O Codex não a invoca automaticamente.
 
 ### Verificar
 
@@ -578,12 +578,12 @@ Exceções: explique por completo quando pedirem. Confirme antes de ações dest
 
 ## Como a ativação funciona
 
-1. **Instalada, mas não invocada.** No Claude Code, nada acontece: `SKILL.md` define `disable-model-invocation: true`, então o modelo não vê a skill nem aplica as regras sozinho. Essa flag é própria do Claude Code; o Codex permite invocação implícita (veja o README), e ambientes que implementam a especificação aberta Agent Skills carregam a descrição de cada skill na inicialização e podem ativá-la por conta própria.
-2. **Você digita `/i-have-adhd`.** As regras ficam ativas nessa sessão. "stop adhd mode" ou "normal mode" as desativa.
+1. **Instalada, mas não invocada.** No Claude Code, Qwen Code e Codex, nada acontece até que você invoque a skill explicitamente. Claude Code e Qwen Code respeitam `disable-model-invocation: true` em `SKILL.md`; o Codex respeita `policy.allow_implicit_invocation: false` em `agents/openai.yaml`. Outros ambientes podem carregar a descrição de cada skill na inicialização e ativá-la por conta própria.
+2. **Você a invoca explicitamente.** Digite `/i-have-adhd` no Claude Code ou Qwen Code, ou `$i-have-adhd` no Codex. As regras ficam ativas nessa sessão. "stop adhd mode" ou "normal mode" as desativa.
 3. **Você cria `~/.claude/.i-have-adhd-always`** (Claude Code). Um hook `SessionStart` carrega todas as regras desde a primeira mensagem, em toda sessão.
 4. **Você adiciona o trecho sempre ativo acima** (outros ambientes). Isso mantém as regras principais no contexto persistente do agente.
 
-No Claude Code não há meio-termo: se você não ativou, está desativado.
+No Claude Code, Qwen Code e Codex não há meio-termo: se você não ativou, está desativado.
 
 ## Solução de problemas
 

@@ -135,7 +135,7 @@ codex plugin marketplace add ayghri/i-have-adhd --ref main
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
-Gõ `$i-have-adhd`.
+Gọi skill một cách rõ ràng bằng cách gõ `$i-have-adhd`. Codex sẽ không tự động kích hoạt skill.
 
 ### Xác minh
 
@@ -578,12 +578,12 @@ Ngoại lệ: giải thích đầy đủ khi được yêu cầu. Xác nhận tr
 
 ## Cơ chế kích hoạt
 
-1. **Đã cài nhưng chưa gọi.** Trong Claude Code, không có gì xảy ra: `SKILL.md` đặt `disable-model-invocation: true`, nên model không thấy skill và không tự áp dụng quy tắc. Cờ này là riêng của Claude Code; Codex cho phép gọi ngầm (xem README), còn các môi trường triển khai đặc tả Agent Skills mở sẽ tải mô tả của từng skill khi khởi động và có thể tự kích hoạt.
-2. **Bạn gõ `/i-have-adhd`.** Quy tắc bật trong phiên đó. "stop adhd mode" hoặc "normal mode" sẽ tắt chúng.
+1. **Đã cài nhưng chưa gọi.** Trong Claude Code, Qwen Code và Codex, không có gì xảy ra cho đến khi bạn gọi skill một cách rõ ràng. Claude Code và Qwen Code tuân theo `disable-model-invocation: true` trong `SKILL.md`; Codex tuân theo `policy.allow_implicit_invocation: false` trong `agents/openai.yaml`. Các môi trường khác có thể tải mô tả của từng skill khi khởi động và tự kích hoạt.
+2. **Bạn gọi skill một cách rõ ràng.** Gõ `/i-have-adhd` trong Claude Code hoặc Qwen Code, hoặc `$i-have-adhd` trong Codex. Quy tắc bật trong phiên đó. "stop adhd mode" hoặc "normal mode" sẽ tắt chúng.
 3. **Bạn tạo `~/.claude/.i-have-adhd-always`** (Claude Code). Hook `SessionStart` tải toàn bộ quy tắc từ tin nhắn đầu tiên trong mọi phiên.
 4. **Bạn thêm đoạn luôn bật ở trên** (các môi trường khác). Điều này giữ quy tắc cốt lõi trong ngữ cảnh lâu dài của agent.
 
-Trong Claude Code không có trạng thái trung gian: nếu bạn chưa bật thì nó đang tắt.
+Trong Claude Code, Qwen Code và Codex không có trạng thái trung gian: nếu bạn chưa bật thì nó đang tắt.
 
 ## Khắc phục sự cố
 

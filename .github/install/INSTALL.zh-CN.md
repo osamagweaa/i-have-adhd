@@ -135,7 +135,7 @@ codex plugin marketplace add ayghri/i-have-adhd --ref main
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
-输入 `$i-have-adhd`。
+明确输入 `$i-have-adhd` 来启用此技能。Codex 不会自动调用它。
 
 ### 验证
 
@@ -578,12 +578,12 @@ npx skills remove i-have-adhd -g    # 如果全局安装
 
 ## 启用机制
 
-1. **已安装但未调用。** 在 Claude Code 中不会发生任何变化：`SKILL.md` 设置了 `disable-model-invocation: true`，因此模型看不到技能，也不会自行应用规则。该标志是 Claude Code 专有的；Codex 默认允许隐式调用（见 README），实现开放 Agent Skills 规范的运行环境会在启动时加载每个技能的描述，并可能自行启用技能。
-2. **输入 `/i-have-adhd`。** 规则在该会话中启用。输入“stop adhd mode”或“normal mode”可将其关闭。
+1. **已安装但未调用。** 在 Claude Code、Qwen Code 和 Codex 中，只有明确调用技能后才会发生变化。Claude Code 和 Qwen Code 遵循 `SKILL.md` 中的 `disable-model-invocation: true`；Codex 遵循 `agents/openai.yaml` 中的 `policy.allow_implicit_invocation: false`。其他运行环境可能会在启动时加载每个技能的描述，并自行启用技能。
+2. **明确调用技能。** 在 Claude Code 或 Qwen Code 中输入 `/i-have-adhd`，在 Codex 中输入 `$i-have-adhd`。规则将在该会话中启用。输入“stop adhd mode”或“normal mode”可将其关闭。
 3. **创建 `~/.claude/.i-have-adhd-always`**（Claude Code）。`SessionStart` 钩子会在每次会话中从第一条消息起加载完整规则。
 4. **添加上面的始终启用片段**（其他运行环境）。这样会将核心规则保留在智能体的持久上下文中。
 
-在 Claude Code 中没有中间状态：未启用就是关闭。
+在 Claude Code、Qwen Code 和 Codex 中没有中间状态：未启用就是关闭。
 
 ## 故障排除
 

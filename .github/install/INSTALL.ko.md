@@ -135,7 +135,7 @@ codex plugin marketplace add ayghri/i-have-adhd --ref main
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
-`$i-have-adhd`를 입력하세요.
+`$i-have-adhd`를 명시적으로 입력해 활성화하세요. Codex는 이 스킬을 자동으로 호출하지 않습니다.
 
 ### 확인
 
@@ -578,12 +578,12 @@ npx skills remove i-have-adhd -g    # 전역 설치한 경우
 
 ## 활성화 방식
 
-1. **설치했지만 호출하지 않은 상태.** Claude Code에서는 아무 일도 일어나지 않습니다. `SKILL.md`에 `disable-model-invocation: true`가 설정되어 모델이 스킬을 보지 못하고 규칙을 스스로 적용하지 않습니다. 이 플래그는 Claude Code 전용입니다. Codex는 암시적 호출이 허용되며(README 참고), 공개 Agent Skills 사양을 구현한 실행 환경은 시작 시 각 스킬 설명을 불러와 스스로 활성화할 수 있습니다.
-2. **`/i-have-adhd`를 입력합니다.** 해당 세션에서 규칙이 활성화됩니다. "stop adhd mode" 또는 "normal mode"로 끌 수 있습니다.
+1. **설치했지만 호출하지 않은 상태.** Claude Code, Qwen Code, Codex에서는 명시적으로 호출하기 전까지 아무 일도 일어나지 않습니다. Claude Code와 Qwen Code는 `SKILL.md`의 `disable-model-invocation: true`를 따르고, Codex는 `agents/openai.yaml`의 `policy.allow_implicit_invocation: false`를 따릅니다. 다른 실행 환경은 시작 시 각 스킬 설명을 불러와 스스로 활성화할 수 있습니다.
+2. **명시적으로 호출합니다.** Claude Code와 Qwen Code에서는 `/i-have-adhd`를, Codex에서는 `$i-have-adhd`를 입력합니다. 해당 세션에서 규칙이 활성화됩니다. "stop adhd mode" 또는 "normal mode"로 끌 수 있습니다.
 3. **`~/.claude/.i-have-adhd-always`를 만듭니다**(Claude Code). `SessionStart` 훅이 매 세션의 첫 메시지부터 전체 규칙을 불러옵니다.
 4. **위의 항상 활성화 코드 조각을 추가합니다**(기타 실행 환경). 핵심 규칙이 에이전트의 영구 컨텍스트에 유지됩니다.
 
-Claude Code에는 중간 상태가 없습니다. 켜지 않았다면 꺼져 있습니다.
+Claude Code, Qwen Code, Codex에는 중간 상태가 없습니다. 켜지 않았다면 꺼져 있습니다.
 
 ## 문제 해결
 
