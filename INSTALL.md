@@ -126,49 +126,6 @@ Pick this route **or** the flag-file route above, not both: two copies of the ru
 
 
 <details>
-<summary><strong>Qwen Code</strong></summary>
-
-### Install
-
-```bash
-qwen extensions install ayghri/i-have-adhd
-```
-
-Qwen Code supports the GitHub shorthand and installs the repository as a
-native extension. The extension discovers the skill under `skills/`.
-
-Type `/i-have-adhd` to invoke the skill explicitly. Installing the extension
-does not change output until the skill is invoked.
-
-### Verify
-
-```bash
-qwen extensions list
-```
-
-Then start a new Qwen Code session and run:
-
-```text
-/skills
-```
-
-Confirm that `i-have-adhd` appears in the list.
-
-### Update
-
-```bash
-qwen extensions update i-have-adhd
-```
-
-### Uninstall
-
-```bash
-qwen extensions uninstall i-have-adhd
-```
-
-</details>
-
-<details>
 <summary><strong>Codex</strong></summary>
 
 ### Install
@@ -415,6 +372,31 @@ Exceptions: explain fully when asked to explain. Confirm before destructive acti
 </details>
 
 <details>
+<summary><strong>Kimi Code CLI</strong></summary>
+
+### Install
+
+Start a Kimi Code session, then:
+
+1. Run `/plugins`.
+2. Choose **Custom**.
+3. Paste `https://github.com/ayghri/i-have-adhd` and press `Enter`.
+4. Choose **Trust and install**.
+
+Use slash command `/skill:i-have-adhd` to invoke the skill explicitly.
+
+### Update
+
+`/plugins` in Kimi Code session, cursor to **I Have ADHD**, press `R`.
+
+### Uninstall
+
+`/plugins` in Kimi Code session, cursor to **I Have ADHD**, press `D`.
+
+
+</details>
+
+<details>
 <summary><strong>Pi</strong></summary>
 
 Pi discovers this repository as a native package: `extensions/` provides the session-persistent mode and `skills/` keeps the Agent Skills entry point available.
@@ -495,6 +477,49 @@ If `PI_CODING_AGENT_DIR` is set, put `.i-have-adhd-always` in that directory ins
 
 </details>
 
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+### Install
+
+```bash
+qwen extensions install ayghri/i-have-adhd
+```
+
+Qwen Code supports the GitHub shorthand and installs the repository as a
+native extension. The extension discovers the skill under `skills/`.
+
+Type `/i-have-adhd` to invoke the skill explicitly. Installing the extension
+does not change output until the skill is invoked.
+
+### Verify
+
+```bash
+qwen extensions list
+```
+
+Then start a new Qwen Code session and run:
+
+```text
+/skills
+```
+
+Confirm that `i-have-adhd` appears in the list.
+
+### Update
+
+```bash
+qwen extensions update i-have-adhd
+```
+
+### Uninstall
+
+```bash
+qwen extensions uninstall i-have-adhd
+```
+
+</details>
 
 <details>
 <summary><strong>Zed</strong></summary>

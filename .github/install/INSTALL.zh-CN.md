@@ -305,7 +305,6 @@ Copilot 遵循 `disable-model-invocation`：与 Claude Code 相同，在调用�
 
 </details>
 
-
 <details>
 <summary><strong>Hermes</strong></summary>
 
@@ -369,6 +368,31 @@ hermes skills uninstall i-have-adhd
 ```
 
 </details>
+
+<details>
+<summary><strong>Kimi Code CLI</strong></summary>
+
+### 安装
+
+启动一个 Kimi Code 会话，然后：
+
+1. 输入 `/plugins`。
+2. 选择 **Custom**。
+3. 粘贴 `https://github.com/ayghri/i-have-adhd` 并 Enter。
+4. 选择 **Trust and install**。
+
+使用斜杠命令 `/skill:i-have-adhd` 显式调用此技能。
+
+### 更新
+
+在 Kimi Code 会话中输入 `/plugins`，将光标移至 **I Have ADHD**，按 `R`。
+
+### 卸载
+
+在 Kimi Code 会话中输入 `/plugins`，将光标移至 **I Have ADHD**，按 `D`。
+
+</details>
+
 
 <details>
 <summary><strong>Pi</strong></summary>
@@ -446,6 +470,47 @@ npx skills remove i-have-adhd
 
 </details>
 
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+### 安装
+
+```bash
+qwen extensions install ayghri/i-have-adhd
+```
+
+Qwen Code 支持 GitHub 短路径，并可将该仓库安装为原生扩展。扩展会发现 `skills/` 下的技能。
+
+安装扩展本身不会改变输出，除非输入 `/i-have-adhd` 显式调用此技能。
+
+### 验证
+
+```bash
+qwen extensions list
+```
+
+然后启动新的 Qwen Code 会话并运行：
+
+```text
+/skills
+```
+
+确认列表中出现 `i-have-adhd`。
+
+### 更新
+
+```bash
+qwen extensions update i-have-adhd
+```
+
+### 卸载
+
+```bash
+qwen extensions uninstall i-have-adhd
+```
+
+</details>
 
 <details>
 <summary><strong>Zed</strong></summary>

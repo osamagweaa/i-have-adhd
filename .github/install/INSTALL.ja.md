@@ -305,7 +305,6 @@ Copilot は `disable-model-invocation` を尊重します。Claude Code と同�
 
 </details>
 
-
 <details>
 <summary><strong>Hermes</strong></summary>
 
@@ -369,6 +368,31 @@ tap も削除する場合は、`hermes skills tap remove ayghri/i-have-adhd` を
 ```
 
 </details>
+
+<details>
+<summary><strong>Kimi Code CLI</strong></summary>
+
+### インストール
+
+Kimi Code セッションを開始してから、次を実行します：
+
+1. `/plugins` を実行する。
+2. **Custom** を選ぶ。
+3. `https://github.com/ayghri/i-have-adhd` を貼り付けて Enter を押す。
+4. **Trust and install** を選ぶ。
+
+slash コマンド `/skill:i-have-adhd` を使って、このスキルを明示的に呼び出します。
+
+### 更新
+
+Kimi Code セッションで `/plugins` を実行し、**I Have ADHD** にカーソルを合わせて `R` を押します。
+
+### アンインストール
+
+Kimi Code セッションで `/plugins` を実行し、**I Have ADHD** にカーソルを合わせて `D` を押します。
+
+</details>
+
 
 <details>
 <summary><strong>Pi</strong></summary>
@@ -446,6 +470,47 @@ npx skills remove i-have-adhd
 
 </details>
 
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+### インストール
+
+```bash
+qwen extensions install ayghri/i-have-adhd
+```
+
+Qwen Code は GitHub の短縮表記をサポートし、このリポジトリをネイティブ拡張機能としてインストールします。拡張機能は `skills/` 配下のスキルを検出します。
+
+スキルを明示的に呼び出すには `/i-have-adhd` を入力します。拡張機能をインストールしただけでは、スキルを呼び出すまで出力は変わりません。
+
+### 確認
+
+```bash
+qwen extensions list
+```
+
+次に新しい Qwen Code セッションを開始し、以下を実行します：
+
+```text
+/skills
+```
+
+一覧に `i-have-adhd` が表示されることを確認します。
+
+### 更新
+
+```bash
+qwen extensions update i-have-adhd
+```
+
+### アンインストール
+
+```bash
+qwen extensions uninstall i-have-adhd
+```
+
+</details>
 
 <details>
 <summary><strong>Zed</strong></summary>
