@@ -47,11 +47,69 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
 ```
+
+</details>
+
+<details>
+<summary><strong>AstronClaw (custom skill)</strong></summary>
+
+AstronClaw supports importing a Markdown file as a custom skill. This route uses
+the existing `SKILL.md`; see its [official skills guide](https://github.com/iflytek/astronclaw-tutorial/blob/main/docs/guide/astronclaw/skills.md)
+for the upload and management controls.
+
+This procedure follows AstronClaw's documentation but has not been tested with
+this skill. Check the exported instructions before enabling it.
+
+### Install
+
+1. Download the [canonical SKILL.md](https://raw.githubusercontent.com/ayghri/i-have-adhd/main/skills/i-have-adhd/SKILL.md) and save it as `SKILL.md`. Review its contents before uploading.
+2. In AstronClaw, open **我的技能 (My skills)**, choose **新建 (New)**, and upload that `.md` file.
+3. Check that the imported skill is named `i-have-adhd`. Use **启用/禁用 (Enable/Disable)** to control its availability.
+
+Only the skill Markdown is needed. Uploading sends that file to AstronClaw;
+the repository's plugin manifests and hooks are not part of this setup.
+
+### Verify and activate
+
+Confirm `i-have-adhd` appears in **My skills**. Use **下载 (Download)** to review
+the imported instructions against the original skill, then enable it and try:
+
+```text
+Use the i-have-adhd skill for this conversation. Explain how to create an empty Git repository in a new folder.
+```
+
+Check that the reply leads with the action and numbers the steps. This is a
+manual check of the imported skill; a successful upload alone does not verify
+that its response rules are being applied.
+
+### Activation note
+
+AstronClaw supports both explicit requests and automatic skill invocation.
+Its guide does not specify whether it honors `disable-model-invocation: true`,
+so use **Disable** when you do not want the skill available. There is no need
+to rely on a `/i-have-adhd` slash command.
+
+The skill instructs the assistant to keep the style for the conversation until
+you say `stop adhd mode` or `normal mode`. That instruction does not change the
+platform toggle; disable the skill and start a new conversation for a fresh
+session without it.
+
+### Update
+
+Download the latest canonical `SKILL.md`. If you customized the imported copy,
+use **下载 (Download)** to keep a backup first. For a clean replacement, delete
+the old `i-have-adhd` entry, repeat the import, and run the verification prompt
+in a new conversation.
+
+### Uninstall
+
+In **My skills**, select `i-have-adhd` and choose **删除 (Delete)**, then start a
+new conversation. To keep the imported copy for later, choose **Disable** instead.
 
 </details>
 
@@ -182,7 +240,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
@@ -304,7 +362,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
@@ -369,7 +427,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
@@ -633,7 +691,7 @@ qwen extensions uninstall i-have-adhd
 <details>
 <summary><strong>Zed</strong></summary>
 
-Zed's Agent reads Agent Skills natively: the same `SKILL.md`, no conversion. (Zed's older "Rules" were replaced by Skills plus `AGENTS.md` instructions.)
+Zed's Agent reads Agent Skills natively using the same SKILL.md format without conversion. Note that Zed's older "Rules" have been replaced by Skills alongside AGENTS.md instructions.
 
 ### Install
 
@@ -649,7 +707,8 @@ Prefer the filesystem? Clone the repo and drop the skill folder into your user s
 
 ```bash
 git clone https://github.com/ayghri/i-have-adhd
-cp -R i-have-adhd/skills/i-have-adhd ~/.config/zed/skills/
+mkdir -p ~/.agents/skills
+cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/
 ```
 
 ### Verify
@@ -662,7 +721,7 @@ Re-import from the same URL (overwrites), or re-copy the folder after `git pull`
 
 ### Uninstall
 
-Remove `i-have-adhd` from the Skills manager, or delete `~/.config/zed/skills/i-have-adhd`.
+Remove `i-have-adhd` from the Skills manager, or delete `~/.agents/skills/i-have-adhd`.
 
 ### Always-on (optional)
 
@@ -681,7 +740,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
@@ -751,7 +810,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
-9. Rank and group long lists; aim for at most five items per group without omitting relevant items.
+9. Cap lists to 5 items.
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
