@@ -15,6 +15,7 @@
   <strong title="日本語" aria-label="日本語">🇯🇵</strong> ·
   <a href="README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
+  <a href="README.fa.md" title="فارسی" aria-label="فارسی">🇮🇷</a> ·
   <a href="README.th.md" title="ภาษาไทย" aria-label="ภาษาไทย">🇹🇭</a>
 </p>
 
@@ -72,7 +73,7 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 6. 所要時間は「少し」ではなく分単位で具体的に示す。
 7. 変更後に何が動くようになったかを明示する。
 8. エラーは場所・原因・対処法だけを淡々と伝える。
-9. 長いリストは重要度順に並べ、1グループ5項目以内を目安に分ける。必要な項目は省略しない。
+9. リストは最大5項目までに抑える。
 10. 前置き・要約・締めの挨拶は入れない。
 
 ## カスタマイズ
