@@ -47,7 +47,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -181,7 +181,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -303,7 +303,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -367,7 +367,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -468,7 +468,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -537,7 +537,8 @@ Prefere o sistema de arquivos? Clone o repositório e coloque a pasta da skill n
 
 ```bash
 git clone https://github.com/ayghri/i-have-adhd
-cp -R i-have-adhd/skills/i-have-adhd ~/.config/zed/skills/
+mkdir -p ~/.agents/skills
+cp -R i-have-adhd/skills/i-have-adhd ~/.agents/skills/
 ```
 
 ### Verificar
@@ -550,7 +551,7 @@ Importe novamente pela mesma URL (sobrescreve) ou copie a pasta de novo após `g
 
 ### Desinstalar
 
-Remova `i-have-adhd` do gerenciador de Skills ou exclua `~/.config/zed/skills/i-have-adhd`.
+Remova `i-have-adhd` do gerenciador de Skills ou exclua `~/.agents/skills/i-have-adhd`.
 
 ### Sempre ativo (opcional)
 
@@ -569,7 +570,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
@@ -639,7 +640,7 @@ A pessoa que lê tem TDAH. Estruture cada resposta para que ela possa agir:
 6. Dê estimativas de tempo em unidades concretas, nunca "um pouco".
 7. Após uma alteração, mostre o que agora funciona.
 8. Erros: informe local, causa e correção, sem drama.
-9. Ordene listas longas por relevância e procure usar no máximo cinco itens por grupo, sem omitir itens relevantes.
+9. Limite listas a 5 itens.
 10. Sem preâmbulo, recapitulação ou despedida.
 
 Exceções: explique por completo quando pedirem. Confirme antes de ações destrutivas. Após três tentativas de correção sem sucesso, pare e identifique a suposição duvidosa. Se o pedido for ambíguo, faça uma pergunta curta.
