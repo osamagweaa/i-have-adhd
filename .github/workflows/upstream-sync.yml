@@ -123,7 +123,7 @@ jobs:
 
           # d. Eval isolation: runners must not execute from the repo root, or
           #    this repo's own CLAUDE.md lands in the baseline condition.
-          grep -q 'cwd=scratch' scripts/run_evals.py || fail "run_evals.py no longer uses cwd=scratch"
+          grep -q '_neutral_cwd' scripts/run_evals.py || fail "run_evals.py no longer isolates the runner cwd"
 
           # e. The generator shares its frontmatter parser with the hooks. A
           #    single-pass read swallows the ruleset on an unclosed fence.
