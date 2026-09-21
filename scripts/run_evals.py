@@ -434,13 +434,6 @@ def run_evaluations(args: argparse.Namespace) -> int:
                 invocation.append(prompt)
                 completed = None
                 for attempt in range(args.retries + 1):
-                    completed = subprocess.run(
-                        invocation,
-                        check=False,
-                        capture_output=True,
-                        text=True,
-                        cwd=scratch,
-                    )
                     with _neutral_cwd() as cwd:
                         completed = subprocess.run(
                             invocation,
