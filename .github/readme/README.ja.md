@@ -11,11 +11,14 @@
 <p align="center">
   <a href="../../README.md" title="English" aria-label="English">🇬🇧</a> ·
   <a href="README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
+  <a href="README.id.md" title="Bahasa Indonesia" aria-label="Bahasa Indonesia">🇮🇩</a> ·
   <a href="README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
   <strong title="日本語" aria-label="日本語">🇯🇵</strong> ·
   <a href="README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
   <a href="README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a> ·
-  <a href="README.th.md" title="ภาษาไทย" aria-label="ภาษาไทย">🇹🇭</a>
+  <a href="README.fa.md" title="فارسی" aria-label="فارسی">🇮🇷</a> ·
+  <a href="README.th.md" title="ภาษาไทย" aria-label="ภาษาไทย">🇹🇭</a> ·
+  <a href="README.ar.md" title="العربية" aria-label="العربية">🇸🇦</a>
 </p>
 
 ## インストール
@@ -72,7 +75,7 @@ Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd,
 6. 所要時間は「少し」ではなく分単位で具体的に示す。
 7. 変更後に何が動くようになったかを明示する。
 8. エラーは場所・原因・対処法だけを淡々と伝える。
-9. 長いリストは重要度順に並べ、1グループ5項目以内を目安に分ける。必要な項目は省略しない。
+9. リストは最大5項目までに抑える。
 10. 前置き・要約・締めの挨拶は入れない。
 
 ## カスタマイズ
@@ -94,6 +97,6 @@ J. Russell Ramsay と Anthony L. Rostain による著書『*The Adult ADHD Tool 
 
 ## ライセンス
 
-MIT
+[MIT](../../LICENSE)
 
 もし1回でも「良い質問ですね！」を読み飛ばすスクロールが減ったなら、Star⭐️をお願いします。
